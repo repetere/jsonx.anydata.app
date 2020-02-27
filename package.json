@@ -1,8 +1,8 @@
 {
   "dependencies": {},
   "devDependencies": {
-    "@types/react": "^16.9.22",
-    "@viewx/vxa": "^0.6.0",
-    "spectre.css": "^0.5.8"
+    "@types/react": "16.9.22",
+    "@viewx/vxa": "0.6.0",
+    "spectre.css": "0.5.8"
   }
 }
