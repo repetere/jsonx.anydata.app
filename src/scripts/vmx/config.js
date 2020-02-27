@@ -27,6 +27,14 @@ window.__VMXConfig = {
         //   // jsonx,
         //   // stylesheets:[url,],
         // },
+        {
+            name: "ReactHighlight",
+            format: "umd",
+            type: "library",
+            umdFilePath: "https://unpkg.com/@repetere/react-highlight@0.12.1/dist/index.umd.js"
+            // jsonx,
+            // stylesheets:[url,],
+        },
         // {
         //   name: "formik",
         //   format: "umd",
@@ -46,11 +54,14 @@ window.__VMXConfig = {
     ],
     customScripts: [
     /*url,*/
+    // 'https://unpkg.com/browse/prismjs@1.19.0/components/prism-core.min.js',
+    // 'https://unpkg.com/prismjs@1.19.0/plugins/autoloader/prism-autoloader.min.js',
     // "https://unpkg.com/scheduler@0.18.0/umd/scheduler.production.min.js"
     ],
     customStyles: [
-    /*url,*/
-    // "node_modules/spectre.css/dist/spectre.min.css"
+        // 'https://unpkg.com/prismjs@1.19.0/themes/prism-okaidia.css',
+        // 'https://unpkg.com/prismjs@1.19.0/themes/prism.css'
+        'https://unpkg.com/highlight.js@9.18.1/styles/darkula.css',
     ],
     customFunctions: {
     /*Function, */
@@ -70,12 +81,6 @@ window.__VMXConfig = {
             order: 100,
             name: "root",
             type: "applicationRoot"
-        },
-        // header,
-        {
-            order: 400,
-            name: 'footer',
-            type: 'view'
         },
     ]
 };

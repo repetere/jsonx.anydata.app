@@ -21,6 +21,161 @@ const footer = {
   }
 }
 
+const UMD_Example = {
+  title: 'Render to page with UMD',
+  link: 'https://codesandbox.io/s/jsonx-static-html-o6owl',
+  frame:`<!DOCTYPE html>
+  <head>
+    <script src="https://unpkg.com/jsonx/dist/jsonx.umd.min.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/react@16.12.0/umd/react.production.min.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.production.min.js" type="text/javascript"></script>
+    <title>Static JSONX Example</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="application/javascript">
+      const JXM = {
+        component: "div",
+        props: { className: "App" },
+        children: [
+          {
+            component: "h1",
+            children: "Hello JSONX CodeSandbox"
+          },
+          {
+            component: "h2",
+            children: "Start editing to see the magic happen!"
+          }
+        ]
+      };
+      jsonx.jsonxRender({ jsonx: JXM, querySelector: "#root" });
+    </script>
+  </body>
+</html>`,
+  language: 'html',
+  output:`<html><head>
+  <script type="text/javascript" src="https://codesandbox.io/public/sse-hooks/sse-hooks.js"></script>
+  <script src="https://unpkg.com/jsonx/dist/jsonx.umd.min.js" type="text/javascript"></script>
+  <script src="https://unpkg.com/react@16.12.0/umd/react.production.min.js" type="text/javascript"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.production.min.js" type="text/javascript"></script>
+  <title>Static JSONX Example</title>
+</head>
+<body>
+  <div id="root"><div class="App"><h1>Hello JSONX CodeSandbox</h1><h2>Start editing to see the magic happen!</h2></div></div>
+  <script type="application/javascript">
+    const JXM = {
+      component: "div",
+      props: { className: "App" },
+      children: [
+        {
+          component: "h1",
+          children: "Hello JSONX CodeSandbox"
+        },
+        {
+          component: "h2",
+          children: "Start editing to see the magic happen!"
+        }
+      ]
+    };
+    jsonx.jsonxRender({ jsonx: JXM, querySelector: "#root" });
+  </script>
+</body></html>`
+}
+const CRA_Example = {
+  title: 'Embedded in Create React App',
+  link: 'https://codesandbox.io/s/jsonx-simple-create-react-app-l5q54',
+  frame: `import * as React from "react";
+import { render } from "react-dom";
+import * as JSONX from "jsonx";
+
+const JXM = {
+  component: "div",
+  props: { className: "App", key: 0 },
+  children: [
+    {
+      component: "h1",
+      children: "Hello JSONX CodeSandbox"
+    },
+    {
+      component: "h2",
+      children: "Start editing to see the magic happen!"
+    }
+  ]
+};
+
+const App = () => {
+  return <section>{JSONX.getReactElementFromJSONX(JXM)}</section>;
+};
+
+const rootElement = document.getElementById("root");
+render(<App />, rootElement);
+`,
+  language: 'javascript',
+  output:`<html lang="en"><head>
+<title>React App</title></head>
+<body>
+<noscript>
+  You need to enable JavaScript to run this app.
+</noscript>
+<div id="root"><section><div class="App"><h1>Hello JSONX CodeSandbox</h1><h2>Start editing to see the magic happen!</h2></div></section></div>
+</body></html>`
+};
+const OUTPUT_Example = {
+  title: 'Output to HTML, JSX and JSON',
+  link: 'https://codesandbox.io/s/jsonx-output-qf9pg',
+  frame: [
+    {
+      title: 'To HTML',
+      code: `//JXM JSON to HTML
+JSONX.outputHTML({ jsonx: JXM });
+
+/*
+<div class="App" data-reactroot="">
+  <h1>Hello JSONX CodeSandbox</h1>
+  <h2>Start editing to see the magic happen!</h2>
+</div>
+*/`,
+    },
+    {
+      title: 'To JSX',
+      code: `//JXM JSON to JSX
+JSONX.outputJSX(JXM);
+
+/*
+<div className="App">
+  <h1>Hello JSONX CodeSandbox</h1>
+  <h2>Start editing to see the magic happen!</h2>
+</div>
+*/`,
+    },
+    {
+      title: 'To JSON',
+      code: `//JXM JSON to JSON
+JSONX.outputJSON(JXM);
+
+/*
+{
+  "type": "div",
+  "props": { "className": "App" },
+  "children": [
+    {
+      "type": "h1", 
+      "props": {}, 
+      "children": "Hello JSONX CodeSandbox"
+    },
+    {
+      "type": "h2", 
+      "props": {}, 
+      "children": "Start editing to see the magic happen!"
+    }
+  ]
+}
+*/`,
+    },
+  ],
+  language: 'typescript'
+};
+
 window.__VMXTemplates = {
   header: {
     '/': {
@@ -35,6 +190,7 @@ window.__VMXTemplates = {
           key: 0
         },
         children: [
+          
           {
             div: {
               children: 'this is the header',
@@ -85,14 +241,90 @@ window.__VMXTemplates = {
         },
         children: [
           {
+            component: 'div',
+            props: {
+              className: 'container grid-xl',
+              style: {
+                position: 'absolute',
+                padding:'.2rem 0',
+              },
+            },
+            children: [
+              {
+                component: 'Spectre.Navbar.Navbar',
+                children: [
+                  {
+                    component: 'Spectre.Navbar.Section',
+                    props: {
+                      style: {
+                        justifyContent:'flex-end'
+                      },
+                    },
+                    children: [
+                      {
+                        href: 'https://repetere.github.io/jsonx/manual.html',
+                        text:'Manual',
+                        // btnClass:''
+                      },
+                      {
+                        href: 'https://repetere.github.io/jsonx/',
+                        text:'Docs',
+                        // btnClass:''
+                      },
+                      {
+                        href: 'https://repetere.github.io/jsonx/manual/samples.html',
+                        text:'Samples',
+                        // btnClass:''
+                      },
+                      {
+                        href: 'https://github.com/repetere/jsonx',
+                        text: 'GitHub',
+                        btnClass:'bg-dark text-light'
+                      }
+                    ].map((link, l) => ({
+                      component: 'a',
+                      props: {
+                        className: `btn ${link.btnClass}`,
+                        style: {
+                          marginLeft: '.2rem',
+                          display:'inline-flex'
+                        },
+                        href:link.href,
+                      },
+                      children:link.text,
+                    }))
+                  },
+                ]
+              }
+            ],
+          },
+          
+          {
             component: 'section',
             props: {
-              className: 'hero hero-lg bg-primary',
+              className: 'hero hero-md bg-primary',
               key: 0
             },
+            children: [
+              {
+                component: 'div',
+                props: {
+                  className:'container grid-xl'
+                },
+                children: [
+                  {
+                    component: 'h1',
+                    children:'JSONX'
+                  },
+                  {
+                    component: 'p',
+                    children:'Create React Elements, JSX and HTML with JSON'
+                  }
+                ]
+              }
+            ]
             
             // component: 'Spectre.Layout.Grid',
-            children: 'this is in a section'
           },
           {
             component: 'section',
@@ -126,7 +358,7 @@ window.__VMXTemplates = {
                       {
                         title: 'Fully Featured',
                         desc:'JSONX supports all of Reacts features including, Hooks, Functional, Class-based, Suspense and Lazy components. JSONX supports JSON objects that implement the JXM (JSONX Markup) Spec.',
-                        link: '#(JXM Spec)',
+                        link: 'https://repetere.github.io/jsonx/manual/spec.html',
                         link_label:'JXM Spec »',
                       }
                     ].map((col, i) => ({
@@ -137,6 +369,11 @@ window.__VMXTemplates = {
                       children: [
                         {
                           component: 'Spectre.Card.Card',
+                          props: {
+                            style: {
+                              height:'100%'
+                            }
+                          },
                           children: [
                             {
                               component: 'Spectre.Card.Header',
@@ -179,7 +416,12 @@ window.__VMXTemplates = {
           },
           {
             component: 'section',
-            props: {className:'container hero grid-xl'},
+            props: {
+              className: 'container hero grid-xl',
+              style: {
+                paddingBottom:0
+              }
+            },
             children: [
               {
                 component: 'Spectre.Layout.Grid',
@@ -192,77 +434,153 @@ window.__VMXTemplates = {
                         children:'Basic Examples',
                       }
                     ]
-                  }
-                ].concat(
-                  [
-                    {
-                      title: 'Render To Page with UMD',
-                      frame:`<iframe
-                      src="https://codesandbox.io/embed/jsonx-static-html-o6owl?fontsize=14&hidenavigation=1&theme=light"
-                      style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-                      title="jsonx-static-html"
-                      allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
-                      sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
-                    ></iframe>`
-                    },
-                    {
-                      title: 'Embedded in Create React App',
-                      frame:`<iframe
-                      src="https://codesandbox.io/embed/jsonx-simple-create-react-app-l5q54?fontsize=14&hidenavigation=1&theme=light"
-                      style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-                      title="jsonx-simple-create-react-app"
-                      allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
-                      sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
-                    ></iframe>`
-                    },
-                    {
-                      title: 'Output to HTML, JSON, JSX',
-                      frame:`<iframe
-                      src="https://codesandbox.io/embed/jsonx-output-qf9pg?fontsize=14&hidenavigation=1&theme=light"
-                      style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-                      title="jsonx-output"
-                      allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
-                      sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
-                    ></iframe>`
-                    },
-                  ].map((row, r) => ({ 
-                    component: 'Spectre.Layout.Row',
-                    props: {
-                      key:`r-${r}`
-                    },
-                    children: [
-                      {
-                        component: 'Spectre.Layout.Col',
-                        props: {
-                          style: {
-                            width:'100%'
-                          },
-                          className:'hero'
-                        },
-                        children: [
-                          {
-                            component:'h5',
-                            children:row.title,
-                          },
-                          {
-                            component: 'div',
-                            props: {
-                              dangerouslySetInnerHTML: {
-                                __html:row.frame
-                              }
-                            }
-                          },
-                          {
-                            component: 'div',
-                            props: {
-                              className:'divider'
-                            }
-                          },
-                        ]
+                  },
+                  {
+                    component: 'div',
+                    children: [UMD_Example, CRA_Example, OUTPUT_Example]
+                    .map((row:any, r:number) => ({ 
+                      component: 'Spectre.Layout.Row',
+                      props: {
+                        key:`r-${r}`
                       },
-                    ]
-                  }))
-                ),
+                      children: [
+                        {
+                          component: 'Spectre.Layout.Col',
+                          props: {
+                            style: {
+                              width:'100%'
+                            },
+                            className:'hero hero-sm'
+                          },
+                          children: [
+                            {
+                              component:'h5',
+                              children: [
+                                {
+                                  component: 'span',
+                                  children:row.title,
+                                },
+                                {
+                                  component: 'small',
+                                  children: [
+                                    {
+                                      component: 'a',
+                                      props: {
+                                        href: row.link,
+                                        target: '_blank',
+                                        style: {
+                                          marginLeft:'0.5rem'
+                                        },
+                                      },
+                                      children:'(try now!)'
+                                    }
+                                  ]
+                                }
+                              ],
+                            },
+                            Array.isArray(row.frame)
+                            ? {
+                              component: 'Spectre.Layout.Row',
+                              children: row.frame.map((innerframe:any, f:number) => ({
+                                  component: 'Spectre.Layout.Col',
+                                  children: [
+                                    {
+                                      component: 'div',
+                                      children: [
+                                        {
+                                          component: 'div',
+                                          children: [
+                                            {
+                                              component: 'ReactHighlight.default',
+                                              props: {
+                                                className:row.language
+                                              },
+                                              children:innerframe.code
+                                            }
+                                          ]
+                                        },
+                                      ]
+                                    }
+                                  ]
+                                }))
+                              }
+                            : {
+                                component: 'Spectre.Layout.Row',
+                                children: [
+                                  {
+                                    component: 'Spectre.Layout.Col',
+                                    props: {
+                                      'col-6': true,
+                                      className:'col-6'
+                                    },
+                                    children: [
+                                      {
+                                        component: 'ReactHighlight.default',
+                                        props: {
+                                          className:row.language
+                                        },
+                                        children:row.frame
+                                      },
+                                    ]
+                                  },
+                                  {
+                                    component: 'Spectre.Layout.Col',
+                                    props: {
+                                      'col-6':true,
+                                    },
+                                    children: [
+                                      {
+                                        component: 'div',
+                                        props: {
+                                          dangerouslySetInnerHTML: {
+                                            __html: row.output
+                                          }
+                                        },
+                                      }
+                                    ]
+                                  },
+                                ]
+                            },
+                            {
+                              component: 'div',
+                              props: {
+                                className:'divider'
+                              }
+                            },
+                          ]
+                        },
+                      ]
+                    }))
+                  ,
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            component: 'section',
+            props: {
+              className:'container grid-xl',
+            },
+            children: [
+              {
+                component: 'div',
+                children: [
+                  {
+                    component: 'h3',
+                    children:'That\'s All!'
+                  },
+                  {
+                    component: 'h6',
+                    children:'Go make something great.'
+                  },
+                ],
+              },
+              {
+                component: 'div',
+                props: {
+                  className:'divider'
+                }
               }
             ]
           },
