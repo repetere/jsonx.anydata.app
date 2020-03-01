@@ -344,7 +344,7 @@ window.__VMXTemplates = {
                     children: [
                       {
                         title: 'Zero Setup',
-                        desc: `The JSONX UMD comes with batteries included so you can use JSONX in browser without transpilers or any additional setup/configure.
+                        desc: `The JSONX UMD comes with batteries included so you can use JSONX in browser without transpilers or any additional setup/configuration.
                         Ideal for JAMstack Applications.`,
                         link: 'https://codesandbox.io/s/jsonx-static-html-o6owl',
                         link_label:'Try it now »',
