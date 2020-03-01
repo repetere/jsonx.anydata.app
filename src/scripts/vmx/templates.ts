@@ -262,7 +262,7 @@ window.__VMXTemplates = {
                     },
                     children: [
                       {
-                        href: 'https://repetere.github.io/jsonx/manual.html',
+                        href: 'https://repetere.github.io/jsonx/manual/getting-started/index.html',
                         text:'Manual',
                         // btnClass:''
                       },
@@ -272,7 +272,7 @@ window.__VMXTemplates = {
                         // btnClass:''
                       },
                       {
-                        href: 'https://repetere.github.io/jsonx/manual/samples.html',
+                        href: 'https://repetere.github.io/jsonx/manual/samples/index.html',
                         text:'Samples',
                         // btnClass:''
                       },
