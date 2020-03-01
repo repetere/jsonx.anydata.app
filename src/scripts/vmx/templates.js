@@ -130,7 +130,7 @@ window.__VMXTemplates = {
                                         },
                                         children: [
                                             {
-                                                href: 'https://repetere.github.io/jsonx/manual.html',
+                                                href: 'https://repetere.github.io/jsonx/manual/getting-started/index.html',
                                                 text: 'Manual',
                                             },
                                             {
@@ -138,7 +138,7 @@ window.__VMXTemplates = {
                                                 text: 'Docs',
                                             },
                                             {
-                                                href: 'https://repetere.github.io/jsonx/manual/samples.html',
+                                                href: 'https://repetere.github.io/jsonx/manual/samples/index.html',
                                                 text: 'Samples',
                                             },
                                             {
@@ -207,7 +207,7 @@ window.__VMXTemplates = {
                                         children: [
                                             {
                                                 title: 'Zero Setup',
-                                                desc: "The JSONX UMD comes with batteries included so you can use JSONX in browser without transpilers or any additional setup/configure.\n                        Ideal for JAMstack Applications.",
+                                                desc: "The JSONX UMD comes with batteries included so you can use JSONX in browser without transpilers or any additional setup/configuration.\n                        Ideal for JAMstack Applications.",
                                                 link: 'https://codesandbox.io/s/jsonx-static-html-o6owl',
                                                 link_label: 'Try it now »',
                                             },
