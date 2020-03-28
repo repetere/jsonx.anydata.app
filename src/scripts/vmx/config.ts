@@ -2,11 +2,11 @@ import { VXAOptions } from "@viewx/vxa/types";
 
 declare global {
   interface Window {
-    __VMXConfig: VXAOptions;
+    __VMXConfig: any;
     __VMXTemplates: any;
   }
 }
-
+//test output
 window.__VMXConfig = {
   templates: window.__VMXTemplates,
   settings: {
@@ -36,6 +36,15 @@ window.__VMXConfig = {
     //   // jsonx,
     //   // stylesheets:[url,],
     // },
+    {
+      name: "ReactAutocomplete",
+      format: "umd",
+      type: "component",
+      umdFilePath:
+        "https://unpkg.com/react-autocomplete@1.8.1/dist/react-autocomplete.js"
+      // jsonx,
+      // stylesheets:[url,],
+    },
     {
       name: "ReactHighlight",
       format: "umd",

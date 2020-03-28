@@ -343,7 +343,7 @@ window.__VMXTemplates = {
                     component: 'Spectre.Layout.Row',
                     children: [
                       {
-                        title: 'Zero Setup',
+                        title: 'Declarative',
                         desc: `The JSONX UMD comes with batteries included so you can use JSONX in browser without transpilers or any additional setup/configuration.
                         Ideal for JAMstack Applications.`,
                         link: 'https://codesandbox.io/s/jsonx-static-html-o6owl',
